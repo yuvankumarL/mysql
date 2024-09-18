@@ -1,0 +1,50 @@
+
+
+// default constraint while creating table
+CREATE TABLE products (
+	product_id INT,
+    produt_name VARCHAR(25),
+    price DECIMAL(4,2) DEFAULT 0
+);
+
+
+
+// default constraint after creating table
+ALTER TABLE products
+ALTER price SET DEFAULT 0;
+
+
+
+// insert values
+INSERT INTO products (product_id, product_name)
+VALUES (104, "straw"),
+	   (105, "napkin"),
+       (106, "fork"),
+       (107, "spoon");
+
+SELECT * FROM products;
+
+
+--> the value for price is defaultly set as 0
+
+
+
+
+
+ex2:
+
+//
+CREATE TABLE transactions (
+	transaction_id INT,
+    amount DECIMAL(5, 2),
+    transaction_date DATETIME DEFAULT NOW()
+);
+
+//
+INSERT INTO transactions (transaction_id, amount)
+VALUES (2, 5.99);
+
+SELECT * FROM transactions;
+
+--> the value for transaction time is current_time
+

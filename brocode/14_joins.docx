@@ -1,0 +1,143 @@
+﻿
+// Joins -- A Join is a class that is used to combine rows from 2 or more tables based on the related column between them such as foreign key
+
+// we have already created 2 tables transactions and customers with common column as customer_id
+
+// lets try to view the based on the common things
+
+// what if instead of credit card pay or a new customer came and bought the product using cash
+
+// In this case there is no customer id
+
+// lets try to insert the value
+
+// insert a transaction
+INSERT INTO transactions (amount, customer_id)
+VALUES (1.00, NULL);
+
+SELECT * FROM transactions;
+
+--> 1 row inserted with null customer_id
+
+// insert a customer 
+INSERT INTO customers (first_name, last_name)
+VALUES ("Gautham", "Gambir");
+
+SELECT * FROM customers;
+
+// perform inner join
+SELECT * 
+FROM transactions INNER JOIN customers
+ON transactions.customer_id = customers.customer_id; 
+
+--> here the result table shows the transactions made by the customers bassed on their customer_id
+
+// Inner Join
+
+// i only wanth the transaction_id, amount and full name of the customer
+
+SELECT transaction_id, amount, first_name, last_name
+FROM transactions INNER JOIN customers
+ON transactions.customer_id = customers.customer_id; 
+
+--> displays only the transactions made by the customer
+
+
+
+
+
+
+
+
+
+
+
+// In Inner join this will give you all the details from the left table and right table based on the customer_id
+
+
+
+
+SELECT transaction_id, amount, first_name, last_name
+FROM transactions INNER JOIN customers
+ON transactions.customer_id = customers.customer_id; 
+
+
+
+
+
+
+
+
+
+SELECT *
+FROM transactions INNER JOIN customers
+ON transactions.customer_id = customers.customer_id; 
+
+
+
+// LEFT JOIN --> This will give you all the details from the left table and right table, but the joining is done based on the customer_id and will give full details from the left table, if there is no common things present between 2 tables (eg., if the transaction is made but the customer id is not available) in this case this will print the transaction details but in the customers name section it will be NULL.
+
+SELECT *
+FROM transactions LEFT JOIN customers
+ON transactions.customer_id = customers.customer_id; 
+
+SELECT transaction_id, amount, first_name, last_name
+FROM transactions LEFT JOIN customers
+ON transactions.customer_id = customers.customer_id; 
+
+--> Here the values are NULL from the right table
+
+
+
+
+
+
+// RIGHT JOIN --> This will play quite opposite to the left join, like this will give all the deatails in the right table and if there is not common things present the left table will be null
+
+(eg., if the customer hasn’t made any transactions yet this will give you only the customer name but in transactions it will be NULL)
+
+
+SELECT transaction_id, amount, first_name, last_name
+FROM transactions RIGHT JOIN customers
+ON transactions.customer_id = customers.customer_id; 
+
+
+SELECT *
+FROM transactions RIGHT JOIN customers
+ON transactions.customer_id = customers.customer_id; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

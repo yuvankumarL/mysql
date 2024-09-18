@@ -1,0 +1,28 @@
+// Creates a database
+create database myDB;
+
+// set the database as default option
+use myDB;
+
+//delete the database
+drop database myDB;
+
+//
+create database myDB;
+
+// modifying the database
+ALTER database myDB READ ONLY = 1;
+
+// lets try to delete the database
+drop database myDB;
+
+// it will not delete because it has permission to only view
+// to overcome this we need to modify the permission
+
+//
+alter database myDB read only = 0;
+
+// now the db is deleted
+drop database myDB;
+
+

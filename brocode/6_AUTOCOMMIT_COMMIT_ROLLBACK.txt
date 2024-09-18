@@ -1,0 +1,29 @@
+// initially AUTOCOMMIT is turned on 
+// this will update every changes that we made in DB
+// now what if you deleted the entire rows in the table mistakenly
+// this will affect the system
+
+//
+
+
+// so now we are turnning off the AUTOCOMMIT
+SET AUTOCOMMIT = OFF;
+
+//
+COMMIT;
+
+// mistakenly deleting the entire rows
+DELETE FROM employees;
+
+SELECT * FROM employees;
+
+--> the entire rows are deleted, but still it is not commited
+
+// 
+ROLLBACK;
+
+SELECT * FROM employees;
+
+--> now the deleted datas are retrived
+
+

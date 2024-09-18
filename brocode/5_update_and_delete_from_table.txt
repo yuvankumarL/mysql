@@ -1,0 +1,37 @@
+
+//to update any row without the primary key we need to use
+
+SET SQL_SAFE_UPDATES = 0;
+
+// update the hourly_pay of empID 6
+
+UPDATE employees
+SET hourly_pay = 80.00
+WHERE employeeID = 6;
+
+SELECT * FROM employees;
+
+
+// updating 2 values at the same time
+
+UPDATE employees
+SET hourly_pay = 80.00,
+	hire_date = "2023-05-01"
+WHERE employeeID = 6;
+
+SELECT * FROM employees;
+
+
+// fire the employee by remving the hire date
+UPDATE employees
+SET hire_date = NULL
+WHERE employeeID = 6;
+
+SELECT * FROM employees;
+
+
+// now remove the entire data (row) of fired employees
+DELETE FROM employees
+WHERE employeeId = 6;
+
+SELECT * FROM employees;

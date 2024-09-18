@@ -1,0 +1,72 @@
+
+// primary key
+
+// CREATE TABLE transactions (
+	transaction_id INT PRIMARY KEY,
+    amount DECIMAL(5, 2),
+    transaction_date DATETIME DEFAULT NOW()
+);
+
+
+
+// remove a column
+ALTER TABLE transactions
+DROP COLUMN transaction_date;
+
+SELECT * FROM transactions;
+
+
+// add a column
+ALTER TABLE transactions
+ADD COLUMN transaction_date DATETIME DEFAULT NOW();
+
+SELECT * FROM transactions;
+
+// insert values
+
+INSERT INTO transactions (transaction_id, amount)
+VALUES (1,4.99);
+
+SELECT * FROM transactions;
+
+
+--> error duplicate values '1' is already present
+
+
+//
+INSERT INTO transactions (transaction_id, amount)
+VALUES (3,4.99);
+
+SELECT * FROM transactions;
+
+--> 1 row inserted
+
+
+
+//
+ALTER TABLE transactions 
+ADD PRIMARY KEY(transaction_id);
+SELECT * FROM transactions;
+
+
+// add auto_increment
+
+ALTER TABLE transactions 
+MODIFY transaction_id INT AUTO_INCREMENT;
+SELECT * FROM transactions;
+
+
+// insert values
+
+INSERT INTO transactions (amount)
+VALUES (8.88); 
+
+SELECT * FROM transactions;
+
+
+//
+ALTER TABLE transactions
+AUTO_INCREMENT = 1000;
+
+
+

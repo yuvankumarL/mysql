@@ -1,0 +1,90 @@
+# create a table
+
+// first create a db
+create database myDB;
+
+// select the db as default
+use myDB;
+
+// create a table employees
+CREATE TABLE employees (
+	employeeID INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    hourly_pay DECIMAL(5,2),
+    hire_date DATE
+);
+
+// select the table
+SELECT * FROM employees;
+
+// rename table 
+RENAME TABLE employees TO workers;
+
+// again rename it
+RENAME TABLE workers TO employees;
+
+// to drop a table
+DROP TABLE employees;
+
+// alter the table
+ALTER TABLE employees
+ADD phone_number VARCHAR(15);
+
+// view the table
+SELECT * FROM employees;      
+
+--> phone number added
+
+
+// Alter the column 
+ALTER TABLE employees
+RENAME COLUMN phone_number TO email;
+
+// view the table
+select * from employees;
+
+--> phone_number changed to email
+
+// modify the column size
+ALTER TABLE employees
+MODIFY COLUMN email VARCHAR(100);
+
+// change the position of a particular column
+ALTER TABLE employees
+MODIFY COLUMN email VARCHAR(100)
+AFTER last_name;
+
+// view the table
+SELECT * FROM employees;
+
+--> the email column comes after last_name
+
+// move the email to first
+ALTER TABLE employees
+MODIFY COLUMN email VARCHAR(100)
+FIRST;
+
+SELECT * FROM employees;
+
+--> emails starts first
+
+// delete a column
+ALTER TABLE employees
+DROP COLUMN email;
+
+//
+SELECT * FROM employees;
+
+--> email column is deleted
+
+
+
+
+
+
+
+
+
+
+

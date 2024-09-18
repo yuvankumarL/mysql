@@ -1,0 +1,29 @@
+// view table
+SELECT * FROM employees;
+
+// we need only the full name of the employees
+SELECT first_name, last_name
+FROM employees;
+
+--> only the column first_name, last_name displayed
+
+// view entire details of the employee using any unique key
+// can be achieved using WHERE
+SELECT *
+FROM employees
+WHERE employeeID = 1;
+
+--> the employee information of ID 1 is displayed
+
+// display only the employees whose hourly pay is >= 25
+SELECT * 
+FROM employees
+WHERE hourly_pay >= 25;
+
+
+// display the person yet to join
+SELECT *
+FROM employees
+WHERE hire_date IS NULL;
+
+

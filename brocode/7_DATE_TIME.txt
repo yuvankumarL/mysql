@@ -1,0 +1,32 @@
+
+// create a table TEST
+CREATE TABLE TEST (
+	my_date DATE,
+    my_time TIME,
+    my_datetime DATETIME
+);
+
+
+// add the values using CURRENT_DATE(), CURRENT_TIME(), NOW()
+INSERT INTO TEST 
+VALUES (CURRENT_DATE(), CURRENT_TIME(), NOW());
+
+SELECT * FROM TEST;
+
+--> today date 
+
+//
+INSERT INTO TEST 
+VALUES (CURRENT_DATE()+1, NULL, NULL);
+
+SELECT * FROM TEST;
+
+--> tommorrow date
+
+//
+INSERT INTO TEST 
+VALUES (CURRENT_DATE()-1, NULL, NULL);
+
+SELECT * FROM TEST;
+
+--> yesterday date

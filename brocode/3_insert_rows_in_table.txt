@@ -1,0 +1,34 @@
+// insert values
+INSERT INTO employees 
+VALUES (1, "Hari", "Ram", 25.50, "2023-04-01");
+
+SELECT * FROM employees;
+
+--> values inserted
+
+// insert multiple rows
+INSERT INTO employees 
+VALUES (2, "Ravi", "Kumar", 15.50, "2023-05-01"),
+	(3, "Kavin", "Raj", 20.50, "2023-05-17"),
+       (4, "Munish", "Kanth", 25.00, "2023-07-01"),
+       (5, "Josep", "Vijay", 90.00, "2023-01-01");
+
+SELECT * FROM employees;
+
+--> 4 rows inserted
+
+// insert into only a specific columns
+INSERT INTO employees
+VALUES (6, "Ajith", "Kumar");
+
+--> this will throw an erro
+
+// to overcome this
+INSERT INTO employees (employeeID, first_name, last_name)
+VALUES (6, "Ajith", "Kumar");
+
+SELECT * FROM employees;
+
+--> now the row is inserted 
+
+

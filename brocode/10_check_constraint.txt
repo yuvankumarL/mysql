@@ -1,0 +1,49 @@
+
+// check constraint
+
+// add contraint while creating table 
+
+CREATE TABLE employees (
+	employeeID INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    hourly_pay DECIMAL(5,2),
+    hire_date DATE
+    CONSTRAINT chk_hourly_pay CHECK (hourly_pay >= 10.00)
+);
+
+
+
+// add contraint after creating table
+
+ALTER TABLE employees
+ADD CONSTRAINT chk_hourly_pay CHECK (hourly_pay >= 10.00);
+
+SELECT * FROM employees;
+
+
+// insert values
+
+INSERT INTO employees 
+VALUES (6, "Leo", "Das", 8.00, "2024-01-01");
+
+SELECT * FROM employees;
+
+
+--> check constraints "check_hourly_pay" is voilated
+
+
+//
+INSERT INTO employees 
+VALUES (6, "Leo", "Das", 80.00, "2024-01-01");
+
+SELECT * FROM employees;
+
+--> now row inserted
+
+
+// remove the constraint
+ALTER TABLE employees
+DROP CONSTRAINT chk_hourly_pay;
+
+
